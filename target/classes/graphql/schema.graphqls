@@ -1,0 +1,57 @@
+#QUERY DEFINITION
+type Query{
+    hotel(id:ID!) : Hotel
+    hotels: [Hotel]
+    user(id:ID!) : User
+    users: [User]
+}
+
+#MUTATION DEFINITION
+type Mutation{
+    createHotel(hotel:HotelDto!) : Hotel
+    updateHotel(hotel:HotelDto!,id:ID!): Hotel
+    deleteHotel(id:ID!) : String!
+    createUser : User
+    updateUser : User
+    deleteUser(id:ID!) : String
+}
+
+#TYPE DEFINITIONS
+type Hotel{
+    id: ID
+    name: String
+    status: Int
+    explanation: String
+    created_at: String
+    updated_at:String
+}
+type User{
+    id: ID
+    username: String
+    role: Int
+    email: String
+    password: String
+    firstname: String
+    lastname: String
+    status: Int
+    type: Int
+    created_at: String
+    updated_at:String
+}
+
+#INPUTS DEFINITIONS
+input UserDto{
+    username: String!
+    role: Int!
+    email: String!
+    password: String!
+    firstname: String!
+    lastname: String!
+    status: Int!
+    type: Int!
+}
+input HotelDto{
+    name: String!
+    status: Int!
+    explanation: String
+}
